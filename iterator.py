@@ -21,8 +21,8 @@ class Wikilink:
         link = 'https://en.wikipedia.org/wiki/' + country_link_name
         return country, link
 
+
 if __name__ == '__main__':
     with open('links_file.txt', 'w', encoding='utf-8') as lf:
-
         for country, item in Wikilink('countries.json', -1):
             lf.write(str(country) + ' ' + str(item) + '\n')
