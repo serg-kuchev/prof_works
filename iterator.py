@@ -1,5 +1,4 @@
 import json
-import re
 
 class Wikilink:
 
@@ -27,4 +26,3 @@ if __name__ == '__main__':
 
         for country, item in Wikilink('countries.json', -1):
             lf.write(str(country) + ' ' + str(item) + '\n')
-            # print(country, item)
