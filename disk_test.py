@@ -10,16 +10,19 @@ def put_file(token):
         headers=HEADERS
     )
     resp1.raise_for_status()
-    data = resp1.json()
-    a = data['href']
-    return a
+    print(resp1.status_code)
 
+token = ''
 
-class test_some_disk(unittest.TestCase):
+class YaTest(unittest.TestCase):
 
     def test_disk_put(self):
-        self.assertEqual('https://cloud-api.yandex.net/v1/disk/resources?path=disk%3A%2Ftest',
-                         put_file(''))
+        self.assertEqual(201, put_file(token))
+        print('Папка создана')
+
+    def test_disk_errors(self):
+        self.assertEqual(409, put_file(token))
+        print('Такая папка уже есть')
 
 
 if __name__ == '__main__':
