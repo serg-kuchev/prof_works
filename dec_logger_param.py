@@ -14,6 +14,7 @@ def param_logs(path):
             name = function.__name__
             f_return = function(*args, **kwargs)
             logger.info(f' {date} {name} {args} {kwargs} {f_return}')
+            return f_return
         return func_logger
     return logger_decor
 
